@@ -29,24 +29,31 @@ public class PlayerController : MonoBehaviour
     void KeyboardController()
     {
         float movementInput = Input.GetAxis("Horizontal");
-        Vector2 scale = transform.localScale;
+
         if (movementInput > 0)
         {
             _velocity.x = Mathf.MoveTowards(_velocity.x, movementInput * moveSpeed, acceleration * Time.deltaTime);
-            _animator.SetBool("Walk",true);
-            scale.x = 1;
+            _animator.SetBool("Walk", true);
+            Vector3 newScale = transform.localScale;
+            newScale.x = Mathf.Abs(newScale.x); // Yüzü sağa döndür
+            transform.localScale = newScale;
         }
-        else if (movementInput <0)
+        else if (movementInput < 0)
         {
             _velocity.x = Mathf.MoveTowards(_velocity.x, movementInput * moveSpeed, acceleration * Time.deltaTime);
-            _animator.SetBool("Walk",true);
-            scale.x = -1;
+            _animator.SetBool("Walk", true);
+            Vector3 newScale = transform.localScale;
+            newScale.x = -Mathf.Abs(newScale.x); // Yüzü sola döndür
+            transform.localScale = newScale;
         }
         else
         {
             _velocity.x = Mathf.MoveTowards(_velocity.x, 0, slowingDown);
-            _animator.SetBool("Walk",false);
+            _animator.SetBool("Walk", false);
         }
-        gameObject.transform.Translate(_velocity* Time.deltaTime);
+
+        transform.Translate(_velocity * Time.deltaTime);
     }
-}
+
+    
+    }
