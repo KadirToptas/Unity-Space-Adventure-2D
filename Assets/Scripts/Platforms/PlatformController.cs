@@ -62,6 +62,7 @@ public class PlatformController : MonoBehaviour
         if (other.gameObject.CompareTag("GroundCheck"))
         {
             GameObject.FindGameObjectWithTag("Player").transform.parent = transform;
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerController>().ResetJumpCount();
         }
     }
 }

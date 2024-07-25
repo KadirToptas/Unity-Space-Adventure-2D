@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float jumpPower;
 
+    [SerializeField] int jumpLimit = 3;
+
+    private int jumpCount;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -69,15 +73,24 @@ public class PlayerController : MonoBehaviour
 
     void StartJumping()
     {
-        rb.AddForce(new Vector2(0,jumpPower), ForceMode2D.Impulse);
-        _animator.SetBool("Jump",true);
+        if (jumpCount < jumpLimit)
+        {
+            rb.AddForce(new Vector2(0,jumpPower), ForceMode2D.Impulse);
+            _animator.SetBool("Jump",true);
+        }
     }
 
     void StopJumping()
     {
         _animator.SetBool("Jump",false);
+        jumpCount++;
+    }
 
+    public void ResetJumpCount()
+    {
+        jumpCount = 0;
     }
 
     
-    }
+    
+}
