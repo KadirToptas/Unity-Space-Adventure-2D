@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration;
     
     [SerializeField] private float slowingDown;
+    
+    [SerializeField] private float jumpPower;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +56,27 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Translate(_velocity * Time.deltaTime);
+        if (Input.GetKeyDown("space"))
+        {
+            StartJumping();
+        }
+
+        if (Input.GetKeyUp("space"))
+        {
+            StopJumping();
+        }
+    }
+
+    void StartJumping()
+    {
+        rb.AddForce(new Vector2(0,jumpPower), ForceMode2D.Impulse);
+        _animator.SetBool("Jump",true);
+    }
+
+    void StopJumping()
+    {
+        _animator.SetBool("Jump",false);
+
     }
 
     
