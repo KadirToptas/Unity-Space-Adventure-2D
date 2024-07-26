@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundCheck
+  - Platform
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -45,6 +47,12 @@ TagManager:
   - name: Platform
     uniqueID: 2301468481
     locked: 0
+  - name: Gold
+    uniqueID: 3823381489
+    locked: 0
   - name: Player
     uniqueID: 2001000845
+    locked: 0
+  - name: UI
+    uniqueID: 1652471103
     locked: 0

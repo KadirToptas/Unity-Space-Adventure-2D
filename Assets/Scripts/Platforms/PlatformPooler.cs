@@ -52,6 +52,10 @@ public class PlatformPooler : MonoBehaviour
             GameObject platform = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
             platformList.Add(platform);
             platform.GetComponent<PlatformController>().SetMovement = true;
+            if (i % 2 == 0)
+            {
+                platform.GetComponent<GoldCollectedManager>().EnableGold();
+            }
             NextPlatformPosition();
         }
 
@@ -71,6 +75,15 @@ public class PlatformPooler : MonoBehaviour
             platformList[i + 5] = platformList[i];
             platformList[i] = temp;
             platformList[i + 5].transform.position = platformPosition;
+            if (platformList[i + 5].gameObject.CompareTag("Platform"))
+            {
+                platformList[i + 5].GetComponent<GoldCollectedManager>().DisableGold();
+                float randomGold = UnityEngine.Random.Range(0.0f, 1.0f);
+                if (randomGold > 0.5f)
+                {
+                    platformList[i + 5].GetComponent<GoldCollectedManager>().EnableGold();
+                }
+            }
             NextPlatformPosition(); 
         }
     }
