@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -128,6 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0,jumpPower), ForceMode2D.Impulse);
             _animator.SetBool("Jump",true);
+            FindObjectOfType<SliderController>().SliderValue(jumpLimit,jumpCount);
         }
     }
 
@@ -135,13 +138,21 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetBool("Jump",false);
         jumpCount++;
+        FindObjectOfType<SliderController>().SliderValue(jumpLimit,jumpCount);
     }
 
     public void ResetJumpCount()
     {
         jumpCount = 0;
+        FindObjectOfType<SliderController>().SliderValue(jumpLimit,jumpCount);
     }
 
-    
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            FindObjectOfType<GameController>().FinishGame();
+        }
+    }
 }

@@ -283,7 +283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 228441419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 859078391}
+        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
+        m_MethodName: ChoosenMode
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: easy
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &228441419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2f4ed823404e64b8667e02dda18799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easyButton: {fileID: 228441418}
+  normalButton: {fileID: 1180027881}
+  hardButton: {fileID: 1890977634}
 --- !u!4 &859078392
 Transform:
   m_ObjectHideFlags: 0
@@ -848,7 +863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1180027882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 859078391}
+        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
+        m_MethodName: ChoosenMode
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: normal
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1180027882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1377,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890977635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 859078391}
+        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
+        m_MethodName: ChoosenMode
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hard
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1890977635
 MonoBehaviour:
   m_ObjectHideFlags: 0

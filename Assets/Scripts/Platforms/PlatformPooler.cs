@@ -44,6 +44,7 @@ public class PlatformPooler : MonoBehaviour
 
         GameObject player = Instantiate(playerPrefab, playerPosition, Quaternion.identity);
         GameObject firstPlatform = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
+        player.transform.parent = firstPlatform.transform;
         platformList.Add(firstPlatform);
         NextPlatformPosition();
         firstPlatform.GetComponent<PlatformController>().SetMovement = true;

@@ -8,10 +8,16 @@ public class GameScoreController : MonoBehaviour
 {
     private int score;
     private int gold;
+
+    private bool collectScore = true;
     
    [SerializeField] private TextMeshProUGUI scoreText; 
    
    [SerializeField] private TextMeshProUGUI goldText; 
+   
+   [SerializeField] private TextMeshProUGUI gameOverScoreText; 
+   
+   [SerializeField] private TextMeshProUGUI gameOverGoldText; 
     
     
     void Start()
@@ -21,13 +27,24 @@ public class GameScoreController : MonoBehaviour
 
     void Update()
     {
-        score = (int)Camera.main.transform.position.y;
-        scoreText.text = "Score: " + score;
+        if (collectScore)
+        {
+            score = (int)Camera.main.transform.position.y;
+            scoreText.text = "Score: " + score;
+        }
+        
     }
 
     public void CollectGold()
     {
         gold++;
         goldText.text = " X " + gold;
-    }   
+    }
+
+    public void GameOver()
+    {
+        collectScore = false;
+        gameOverScoreText.text = "Score: " + score;
+        gameOverGoldText.text = " X " + gold;
+    }
 }
