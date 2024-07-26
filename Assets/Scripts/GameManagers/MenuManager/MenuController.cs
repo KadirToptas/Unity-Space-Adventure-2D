@@ -9,15 +9,24 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]  private Button musicButton;
 
-    private bool musicIsOn = true;
     
-    // Start is called before the first frame update
+    
+    
     void Start()
     {
-        
+        if (SettingsPrefs.isSaved() == false)
+        {
+            SettingsPrefs.AssignEasy(1);
+        }
+
+        if (SettingsPrefs.isMusicOnSaved() == false)
+        {
+            SettingsPrefs.AssignMusicOn(1);
+        }
+        CheckMusicSettings();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -40,15 +49,28 @@ public class MenuController : MonoBehaviour
 
     public void Music()
     {
-        if (musicIsOn)
+        if (SettingsPrefs.ReadMusicOnValue()==1)
         {
-            musicIsOn = false;
+            SettingsPrefs.AssignMusicOn(0); 
             musicButton.image.sprite = musicIkons[0];
         }
         else
         {
-            musicIsOn = true;
+            SettingsPrefs.AssignMusicOn(1); 
             musicButton.image.sprite = musicIkons[1];
+        }
+    }
+
+
+    void CheckMusicSettings()
+    {
+        if (SettingsPrefs.ReadMusicOnValue() == 1)
+        {
+            musicButton.image.sprite = musicIkons[1];
+        }
+        else
+        {
+            musicButton.image.sprite = musicIkons[0];
         }
     }
     

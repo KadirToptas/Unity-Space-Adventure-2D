@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7728549049116921468}
   m_Layer: 0
   m_Name: Platform_Death
-  m_TagString: Death
+  m_TagString: DeathPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

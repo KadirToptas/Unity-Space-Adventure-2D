@@ -31,7 +31,9 @@ public class GameController : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         FindObjectOfType<GameScoreController>().GameOver();
-        CloseUI();
+        FindObjectOfType<PlayerController>().PlayerGameOver();
+        FindObjectOfType<CameraController>().CameraGameOver();
+        CloseUI(); 
     }
 
     public void ReturnToMainMenu()

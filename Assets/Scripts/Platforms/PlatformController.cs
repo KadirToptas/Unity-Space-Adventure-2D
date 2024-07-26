@@ -29,7 +29,24 @@ public class PlatformController : MonoBehaviour
     void Start()
     {
         _polygonCollider2D = GetComponent<PolygonCollider2D>();
-        randomMoveSpeed = Random.Range(0.5f, 1.0f);
+        
+        if (SettingsPrefs.ReadEasyValue() == 1)
+        {
+            randomMoveSpeed = Random.Range(0.2f, 0.8f);
+
+        }
+
+        if (SettingsPrefs.ReadNormalValue() == 1)
+        {
+            randomMoveSpeed = Random.Range(0.5f, 1.0f);
+
+        }
+
+        if (SettingsPrefs.ReadHardValue() == 1)
+        {
+            randomMoveSpeed = Random.Range(0.8f, 1.5f);
+
+        }
 
         float objectWidth = _polygonCollider2D.bounds.size.x / 2;
         

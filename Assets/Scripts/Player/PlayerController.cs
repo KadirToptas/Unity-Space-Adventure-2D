@@ -155,4 +155,10 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<GameController>().FinishGame();
         }
     }
+
+
+    public void PlayerGameOver()
+    {
+        Destroy(gameObject);
+    }
 }

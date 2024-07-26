@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlatformDeathController : MonoBehaviour
 {
@@ -51,6 +53,15 @@ public class PlatformDeathController : MonoBehaviour
             float pingPongX = Mathf.PingPong(Time.time * randomMoveSpeed, max - min)+min;
             Vector2 pingPong = new Vector2(pingPongX, transform.position.y);
             transform.position = pingPong;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("GroundCheck"))
+        {
+            FindObjectOfType<GameController>().FinishGame();
         }
     }
 }

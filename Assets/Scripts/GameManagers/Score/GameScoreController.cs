@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class GameScoreController : MonoBehaviour
 {
     private int score;
+    private int highestScore;   
     private int gold;
+    private int highestGold;
 
     private bool collectScore = true;
     
@@ -43,6 +45,53 @@ public class GameScoreController : MonoBehaviour
 
     public void GameOver()
     {
+        if (SettingsPrefs.ReadEasyValue() == 1)
+        {
+            highestScore = SettingsPrefs.ReadEasyScoreValue();
+            highestGold = SettingsPrefs.ReadEasyGoldValue();
+            if (score > highestScore)
+            {
+                SettingsPrefs.AssignEasyScore(score);
+            }
+
+            if (gold > highestGold)
+            {
+                SettingsPrefs.AssignEasyGold(gold);
+            }
+        }
+        
+        
+        if (SettingsPrefs.ReadNormalValue() == 1)
+        {
+            highestScore = SettingsPrefs.ReadNormalScoreValue();
+            highestGold = SettingsPrefs.ReadNormalGoldValue();
+            if (score > highestScore)
+            {
+                SettingsPrefs.AssignNormalScore(score);
+            }
+
+            if (gold > highestGold)
+            {
+                SettingsPrefs.AssignNormalGold(gold);
+            }
+        }
+        
+        
+        
+        if (SettingsPrefs.ReadHardValue() == 1)
+        {
+            highestScore = SettingsPrefs.ReadHardScoreValue();
+            highestGold = SettingsPrefs.ReadHardGoldValue();
+            if (score > highestScore)
+            {
+                SettingsPrefs.AssignHardScore(score);
+            }
+
+            if (gold > highestGold)
+            {
+                SettingsPrefs.AssignHardGold(gold);
+            }
+        }
         collectScore = false;
         gameOverScoreText.text = "Score: " + score;
         gameOverGoldText.text = " X " + gold;

@@ -10,7 +10,26 @@ public class SettingsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (SettingsPrefs.ReadEasyValue() == 1)
+        {
+            easyButton.interactable = false;
+            normalButton.interactable = true;
+            hardButton.interactable = true;
+        }
+
+        if (SettingsPrefs.ReadNormalValue() == 1)
+        {
+            easyButton.interactable = true;
+            normalButton.interactable = false;
+            hardButton.interactable = true;
+        }
+
+        if (SettingsPrefs.ReadHardValue() == 1)
+        {
+            easyButton.interactable = true;
+            normalButton.interactable = true;
+            hardButton.interactable = false;
+        }
     }
     
 
@@ -19,16 +38,25 @@ public class SettingsController : MonoBehaviour
         switch (level)
         {
             case "easy":
+                SettingsPrefs.AssignEasy(1);
+                SettingsPrefs.AssignNormal(0);
+                SettingsPrefs.AssignHard(0);
                 easyButton.interactable = false;
                 normalButton.interactable = true;
                 hardButton.interactable = true;
                 break;
             case "normal":
+                SettingsPrefs.AssignEasy(0);
+                SettingsPrefs.AssignNormal(1);
+                SettingsPrefs.AssignHard(0);
                 easyButton.interactable = true;
                 normalButton.interactable = false;
                 hardButton.interactable = true;
                 break;
             case "hard":
+                SettingsPrefs.AssignEasy(0);
+                SettingsPrefs.AssignNormal(0);
+                SettingsPrefs.AssignHard(1);
                 easyButton.interactable = true;
                 normalButton.interactable = true;
                 hardButton.interactable = false;
