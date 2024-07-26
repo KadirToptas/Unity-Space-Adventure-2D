@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 6db75e7b58db59144b23c8e87261fad9
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8b42de2877fe1d544a73a36608532370
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: de4bd608e5ad1c44abc2b0f884cfc444
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 2755cd1728dcfbb498b124f43b6fd977
   m_configObjects: {}
