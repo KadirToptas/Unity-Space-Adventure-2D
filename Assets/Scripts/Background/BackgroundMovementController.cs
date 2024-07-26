@@ -9,6 +9,7 @@ public class BackgroundMovementController : MonoBehaviour
     void Start()
     {
         _backgroundPosition = transform.position.y;
+        FindObjectOfType<Planets>().SettlePlanets(_backgroundPosition);
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class BackgroundMovementController : MonoBehaviour
     void SettleBackground()
     {
         _backgroundPosition += (_distance * 2);
+        FindObjectOfType<Planets>().SettlePlanets(_backgroundPosition);
         Vector2 newPos = new Vector2(0, _backgroundPosition);
         transform.position = newPos;
     }

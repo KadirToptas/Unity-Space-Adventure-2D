@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
 
     public void FinishGame()
     {
+        FindObjectOfType<SoundController>().GameOverSound();
         gameOverPanel.SetActive(true);
         FindObjectOfType<GameScoreController>().GameOver();
         FindObjectOfType<PlayerController>().PlayerGameOver();

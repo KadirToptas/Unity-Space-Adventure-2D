@@ -39,6 +39,7 @@ public class GameScoreController : MonoBehaviour
 
     public void CollectGold()
     {
+        FindObjectOfType<SoundController>().GoldSound();
         gold++;
         goldText.text = " X " + gold;
     }
@@ -84,7 +85,7 @@ public class GameScoreController : MonoBehaviour
             highestGold = SettingsPrefs.ReadHardGoldValue();
             if (score > highestScore)
             {
-                SettingsPrefs.AssignHardScore(score);
+                SettingsPrefs.AssignHardScore(score); 
             }
 
             if (gold > highestGold)

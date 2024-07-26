@@ -92,6 +92,13 @@ public class PlatformPooler : MonoBehaviour
     void NextPlatformPosition()
     {
         platformPosition.y += distanceBetweenPlatforms;
+        MixedPosition();
+        
+    }
+
+    void MixedPosition()
+    {
+        
         float random = UnityEngine.Random.Range(0.0f, 1.0f);
         if (random < 0.5f)
         {
@@ -100,6 +107,21 @@ public class PlatformPooler : MonoBehaviour
         else
         {
             platformPosition.x = -ScreenCalculator.instance.Width / 2;
+        }
+    }
+
+    private bool direction = true;
+    void SequentialPosition()
+    {
+        if (direction)
+        {
+            platformPosition.x = ScreenCalculator.instance.Width / 2;
+            direction = false;
+        }
+        else
+        {
+            platformPosition.x = -ScreenCalculator.instance.Width / 2;
+            direction = false;
         }
     }
 
